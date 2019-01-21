@@ -1,0 +1,10 @@
+{
+	"excludedFolders": [
+		"**/rLog",
+		"**/rLogComponents"
+	],
+	"exclude": "**/out/**",
+	"sourcePath": "src/test/stubProject",
+	"targetPath": "build",
+	"logStyle": "ShortAtStart"
+}
