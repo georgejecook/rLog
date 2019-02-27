@@ -46,13 +46,18 @@ Performance is absolutely critical in Roku apps - rLog gives you professional-gr
  - Disabled - any rLog calls will return instantly, without incurring any logging penalty
  - Fully disabled - all log lines are commented out - this means you won't even incur variable/string reference performance penalties.
 
- ### rLog, Burp and vscode-brightscript-language extension, sitting in a tree l o g g i n g
+### rLog, Burp and vscode-brightscript-language extension, sitting in a tree l o g g i n g
 
  rLog can leverage [Burp](https://github.com/georgejecook/burp) (brightscript file processing framework) to allow it to give you the best logging experience. rLog will automatically put burp compatible constants in your log output so you can benefit from:
 
   - file name, function name and line number in your log output
   - `pkg:file.brs(lineNumber)` log format, which gives you clickable log lines in [vscode brightscript language extension] (https://github.com/TwitchBronBron/vscode-brightscript-language/)
   - ability to easily comment out log lines.
+
+Here's an example of what you can get set up:
+
+![https://i.imgur.com/GcUK9iO.mp4](https://i.imgur.com/GcUK9iO.mp4)
+
 
 #Using rLog
 ## Quick start
