@@ -54,10 +54,7 @@ Performance is absolutely critical in Roku apps - rLog gives you professional-gr
   - `pkg:file.brs(lineNumber)` log format, which gives you clickable log lines in [vscode brightscript language extension] (https://github.com/TwitchBronBron/vscode-brightscript-language/)
   - ability to easily comment out log lines.
 
-Here's an example of what you can get set up:
-
-![https://i.imgur.com/GcUK9iO.mp4](https://i.imgur.com/GcUK9iO.mp4)
-
+[Here's an example of what you can get set up](https://imgur.com/GcUK9iO)
 
 #Using rLog
 ## Quick start
