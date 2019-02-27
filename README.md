@@ -56,7 +56,8 @@ Performance is absolutely critical in Roku apps - rLog gives you professional-gr
 
 [Here's an example of what you can get set up](https://imgur.com/GcUK9iO)
 
-#Using rLog
+# Using rLog
+
 ## Quick start
 
  1. Clone this repo
