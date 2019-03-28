@@ -5,7 +5,7 @@
     "includePattern": ".+\\.brs?$"
   },
   "templates": {
-    "systemName": "Rooibosh",
-    "search": false
+    "systemName": "rLog",
+    "search": true
   }
 }
