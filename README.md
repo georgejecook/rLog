@@ -5,6 +5,7 @@
 <h3 align="center">
 A Roku logger
 </h3>
+
 [![Build Status](https://travis-ci.org/georgejecook/rLog.svg?branch=master)](https://travis-ci.org/georgejecook/rLog)
 [![GitHub](https://img.shields.io/github/release/georgejecook/rLog.svg?style=flat-square)](https://github.com/georgejecook/rLog/releases) 
 
