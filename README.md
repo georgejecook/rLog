@@ -5,17 +5,15 @@
 <h3 align="center">
 A Roku logger
 </h3>
-<p align="center">
-  Version 0.2.0
-</p>
+[![Build Status](https://travis-ci.org/georgejecook/rLog.svg?branch=master)](https://travis-ci.org/georgejecook/rLog)
+[![GitHub](https://img.shields.io/github/release/georgejecook/rLog.svg?style=flat-square)](https://github.com/georgejecook/rLog/releases) 
 
 ## Links
  - **[Youtube videos - TBD]()**
  - **[API Documentaiton](https://georgejecook.github.io/rLog)**
- - **[Release notes / History / Changes](CHANGELOG.md)**
+ - **[CHANGELOG](CHANGELOG.md)**
  - [Roku developer slack group](https://join.slack.com/t/rokudevelopers/shared_invite/enQtMzgyODg0ODY0NDM5LTc2ZDdhZWI2MDBmYjcwYTk5MmE1MTYwMTA2NGVjZmJiNWM4ZWY2MjY1MDY0MmViNmQ1ZWRmMWUzYTVhNzJiY2M)
  - [Issue tracker](https://github.com/georgejecook/rLog/issues)
- - [Roadmap](ROADMAP.md)
 
 ## Development
 
@@ -48,7 +46,7 @@ Performance is absolutely critical in Roku apps - rLog gives you professional-gr
 
 ### rLog, Burp and vscode-brightscript-language extension, sitting in a tree l o g g i n g
 
- rLog can leverage [Burp](https://github.com/georgejecook/burp) (brightscript file processing framework) to allow it to give you the best logging experience. rLog will automatically put burp compatible constants in your log output so you can benefit from:
+ rLog can leverage [burp-brightscript](https://github.com/georgejecook/burp) (brightscript file processing framework) to allow it to give you the best logging experience. rLog will automatically put burp compatible constants in your log output so you can benefit from:
 
   - file name, function name and line number in your log output
   - `pkg:file.brs(lineNumber)` log format, which gives you clickable log lines in [vscode brightscript language extension] (https://github.com/TwitchBronBron/vscode-brightscript-language/)
@@ -60,25 +58,27 @@ Performance is absolutely critical in Roku apps - rLog gives you professional-gr
 
 ## Quick start
 
- 1. Clone this repo
+ 1. Download the latest zip release
  1. Copy `dist/components/rLog` to your project's components folder (e.g whatever equates to `pkg:/components` at runtime)
  1. Copy `dist/source/rLog` to your project's source folder (e.g whatever equates to `pkg:/source` at runtime)
  1. Import the rLog mixin script, in your main scene xml file `<script type="text/brightscript" uri="pkg:/source/rLog/rLogMixin.brs" />`
  1. Create an rLog instance in your main scene e.g, in your main scene's brs init function, add `m.top._rLog = initializeRlog()` - pro tip: make it available as an interface variable for runtime inspection with [RALE](https://sdkdocs.roku.com/display/sdkdoc/Roku+Advanced+Layout+Editor)
  1. Register your class (i.e. module, or scenegraph component) with the logger, with a call to `registerLogger("ComponentName")`, with the name you wish rLog to use for log output
  1. Begin logging, using the rLog log methods, e.g. `logVerbose("Keypress {0}", key)`
-
+ 1. For better results, wire up with [burp-brightscript](https://github.com/georgejecook/burp), as described below
 ## Logging API
 
 For full API, see the [docs](https://georgejecook.github.io/rLog)
 
 ### initializeRlog
 
-`initializeRLog(isForcedOff = false, isLightForcedOn = false, isLightForcedOff = false) as object`
+`initializeRLog(isForcedOff = false, isLightForcedOn = false, isLightForcedOff = false, isPrintingName = false) as object`
 
 This call must be made to create the rLog instance, which will be stored in global. As a convenience, the instance is also returned, for further configuration.
 
 Note, you can force rlog off, or light logging on for everything, or off for everything. Pro tip: You can pass these values in from your manifest, which in turn can be configured by your build pipeline.
+
+note printing the log name is off by default - You will get best results using [burp-brightscript](https://github.com/georgejecook/burp) which will give you line numbers and accurate method names in your logs
 
 ### registerLogger
 
@@ -130,6 +130,35 @@ end function
 function netMixin_callNet()
   m.logMethod("callNet")
 end function
+```
+
+
+## Using with burp brightscript (or any other processor)
+
+For best results, you can process your files prior to execution, to replace rLog calls, with more precise line information. Here's an example burp script, if you use [burp-brightscript](https://github.com/georgejecook/burp)
+
+#### burpConfig-dev.json
+```
+{
+  "sourcePath": "build",
+  "globPattern": "**/*.brs",
+  "replacements": [
+    {
+      "regex": "(^.*(logInfo|logError|logVerbose|logDebug)\\((\\s*\"))",
+      "replacement": "$1#FullPath# "
+    },
+    {
+      "regex": "(^.*(logMethod)\\((\\s*\"))",
+      "replacement": "$1#FullPath# "
+    }
+  ]
+}
+```
+
+It is run with the following command sa part of the project's build process:
+
+```
+burp p burpConfig-Dev.json
 ```
 
 ## FAQ

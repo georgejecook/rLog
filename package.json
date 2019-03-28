@@ -1,6 +1,6 @@
 {
   "name": "rLog",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "description": "logger for Roku scenegraph apps",
   "main": "index.js",
   "directories": {
@@ -19,13 +19,13 @@
     "gulp-concat": "^2.6.1",
     "gulp-copy": "^4.0.1",
     "gulp-rm-lines": "0.0.9",
+    "gulp-zip": "^4.2.0",
     "gulpclass": "^0.2.0",
     "minami": "^1.2.3",
     "typescript": "^3.3.1",
     "vinyl-paths": "^2.1.0"
   },
-  "scripts": {
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/georgejecook/rLog.git"

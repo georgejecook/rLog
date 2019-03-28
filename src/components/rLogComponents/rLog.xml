@@ -20,6 +20,7 @@
     <field id="isForcedOff" type="boolean" value="false"/>
     <field id="isLightForcedOn" type="boolean" value="false"/>
     <field id="isLightForcedOff" type="boolean" value="false"/>
+    <field id="isPrintingName" type="boolean" value="false"/>
     
     <!-- if configured, you can view your log output here -->
     <field id="_nodeLogger" type="node"/>
