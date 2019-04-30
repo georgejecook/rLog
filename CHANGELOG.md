@@ -1,5 +1,20 @@
 # rLog CHANGELOG
 
+
+## 0.3.1 - minor bugfix
+
+### Added
+
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+ - crash with isPrintingName
+
 ## 0.3.0 - starting to get serious - proper git project structure
 
 ### Added

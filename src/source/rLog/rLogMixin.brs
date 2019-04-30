@@ -99,7 +99,7 @@ end function
 
 function logImpl(level, message, value = "#RLN#", value2 = "#RLN#", value3 = "#RLN#", value4 = "#RLN#", value5 = "#RLN#", value6 = "#RLN#", value7 = "#RLN#", value8 = "#RLN#", value9 = "#RLN#", isMethod = false) as void
   if m.rLog_instance = invalid or m.rLog_instance.isForcedOff = true then return
-  if isPrintingName = true
+  if m.isPrintingName = true
     if m.rLog_name <> invalid
       name = m.rLog_name
     else

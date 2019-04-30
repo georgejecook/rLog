@@ -1,6 +1,6 @@
 {
   "name": "rLog",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "logger for Roku scenegraph apps",
   "main": "index.js",
   "directories": {
